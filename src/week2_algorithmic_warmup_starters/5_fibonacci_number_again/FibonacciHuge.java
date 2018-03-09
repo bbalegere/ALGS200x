@@ -13,7 +13,7 @@ public class FibonacciHuge {
         fib.add((long) 1);
 
         int i;
-        for(i=2;i<=n;i++) {
+        for (i = 2; i <= n; i++) {
             fib.add((fib.get(i - 1) + fib.get(i - 2)) % m);
             if (fib.get(i) == 1 && fib.get(i - 1) == 0) {
                 int rem = (int) (n % (i - 1));
@@ -21,7 +21,7 @@ public class FibonacciHuge {
             }
 
         }
-        return fib.get(i-1);
+        return fib.get(i - 1);
     }
 
 //    private static long getFibonacciHugeNaive(long n, long m) {

@@ -1,24 +1,32 @@
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class MaxPairwiseProduct {
-    static int getMaxPairwiseProduct(int[] numbers) {
-        int result = 0;
+    static long getMaxPairwiseProduct(long[] numbers) {
+        long result;
         int n = numbers.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (numbers[i] * numbers[j] > result) {
-                    result = numbers[i] * numbers[j];
+
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = i; j < n - 1; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    long temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
                 }
             }
         }
+        result = numbers[n - 1] * numbers[n - 2];
         return result;
     }
 
     public static void main(String[] args) {
         FastScanner scanner = new FastScanner(System.in);
         int n = scanner.nextInt();
-        int[] numbers = new int[n];
+        long[] numbers = new long[n];
         for (int i = 0; i < n; i++) {
             numbers[i] = scanner.nextInt();
         }

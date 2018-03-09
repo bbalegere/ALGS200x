@@ -1,4 +1,5 @@
 //7 Last Digit of the Sum of Fibonacci Numbers Again
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -1,26 +1,26 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class LCM {
- 
-  private static int gcd(int a, int b) {
-    if(b==0) return a;
-	
-	int n1 = b;
-	int n2 = a%b;
-	
-	return gcd(n1,n2);
-	
-  }
-  private static long lcm_naive(int a, int b) {	
 
-    return (long) a * b/gcd(a,b);
-  }
+    private static int gcd(int a, int b) {
+        if (b == 0) return a;
 
-  public static void main(String args[]) {
-    Scanner scanner = new Scanner(System.in);
-    int a = scanner.nextInt();
-    int b = scanner.nextInt();
+        int n2 = a % b;
 
-    System.out.println(lcm_naive(a, b));
-  }
+        return gcd(b, n2);
+
+    }
+
+    private static long lcm_naive(int a, int b) {
+
+        return (long) a * b / gcd(a, b);
+    }
+
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
+        System.out.println(lcm_naive(a, b));
+    }
 }

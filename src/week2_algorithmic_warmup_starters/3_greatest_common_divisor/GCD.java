@@ -1,21 +1,20 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class GCD {
-  private static int gcd_naive(int a, int b) {
-    if(b==0) return a;
-	
-	int n1 = b;
-	int n2 = a%b;
-	
-	return gcd_naive(n1,n2);
-	
-  }
+    private static int gcd_naive(int a, int b) {
+        if (b == 0) return a;
 
-  public static void main(String args[]) {
-    Scanner scanner = new Scanner(System.in);
-    int a = scanner.nextInt();
-    int b = scanner.nextInt();
+        int n2 = a % b;
 
-    System.out.println(gcd_naive(a, b));
-  }
+        return gcd_naive(b, n2);
+
+    }
+
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
+        System.out.println(gcd_naive(a, b));
+    }
 }
