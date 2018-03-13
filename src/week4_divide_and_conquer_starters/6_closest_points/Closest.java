@@ -1,5 +1,8 @@
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.StringTokenizer;
 
 public class Closest {
 
@@ -48,11 +51,10 @@ public class Closest {
         strip.sort(Point.ysort);
 
         for (int i = 0; i < strip.size(); i++) {
-            for (int j = i + 1; j < Math.min(i + 6, strip.size()); j++) {
-                if ((strip.get(j).y - strip.get(i).y) < d) {
-                    d = Math.min(d, dist(strip.get(i), strip.get(j)));
-                }
+            for (int j = i + 1; j < strip.size() && ((strip.get(j).y - strip.get(i).y) < d); j++) {
+                d = Math.min(d, dist(strip.get(i), strip.get(j)));
             }
+
         }
         return d;
     }
